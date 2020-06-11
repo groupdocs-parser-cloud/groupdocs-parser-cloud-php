@@ -55,7 +55,8 @@ class InfoResult implements ArrayAccess
     protected static $swaggerTypes = [
         'fileType' => '\GroupDocs\Parser\Model\FileType',
         'size' => 'int',
-        'pageCount' => 'int'
+        'pageCount' => 'int',
+        'encoding' => 'string'
     ];
 
     /*
@@ -66,7 +67,8 @@ class InfoResult implements ArrayAccess
     protected static $swaggerFormats = [
         'fileType' => null,
         'size' => 'int64',
-        'pageCount' => 'int32'
+        'pageCount' => 'int32',
+        'encoding' => null
     ];
 
     /*
@@ -98,7 +100,8 @@ class InfoResult implements ArrayAccess
     protected static $attributeMap = [
         'fileType' => 'FileType',
         'size' => 'Size',
-        'pageCount' => 'PageCount'
+        'pageCount' => 'PageCount',
+        'encoding' => 'Encoding'
     ];
 
     /*
@@ -109,7 +112,8 @@ class InfoResult implements ArrayAccess
     protected static $setters = [
         'fileType' => 'setFileType',
         'size' => 'setSize',
-        'pageCount' => 'setPageCount'
+        'pageCount' => 'setPageCount',
+        'encoding' => 'setEncoding'
     ];
 
     /*
@@ -120,7 +124,8 @@ class InfoResult implements ArrayAccess
     protected static $getters = [
         'fileType' => 'getFileType',
         'size' => 'getSize',
-        'pageCount' => 'getPageCount'
+        'pageCount' => 'getPageCount',
+        'encoding' => 'getEncoding'
     ];
 
     /*
@@ -186,6 +191,7 @@ class InfoResult implements ArrayAccess
         $this->container['fileType'] = isset($data['fileType']) ? $data['fileType'] : null;
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['pageCount'] = isset($data['pageCount']) ? $data['pageCount'] : null;
+        $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
     }
 
     /*
@@ -293,6 +299,30 @@ class InfoResult implements ArrayAccess
     public function setPageCount($pageCount)
     {
         $this->container['pageCount'] = $pageCount;
+
+        return $this;
+    }
+
+    /*
+     * Gets encoding
+     *
+     * @return string
+     */
+    public function getEncoding()
+    {
+        return $this->container['encoding'];
+    }
+
+    /*
+     * Sets encoding
+     *
+     * @param string $encoding Gets or sets the encoding.
+     *
+     * @return $this
+     */
+    public function setEncoding($encoding)
+    {
+        $this->container['encoding'] = $encoding;
 
         return $this;
     }

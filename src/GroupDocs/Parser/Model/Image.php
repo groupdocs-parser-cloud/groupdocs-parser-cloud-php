@@ -54,7 +54,11 @@ class Image implements ArrayAccess
      */
     protected static $swaggerTypes = [
         'path' => 'string',
-        'downloadUrl' => 'string'
+        'downloadUrl' => 'string',
+        'pageIndex' => 'int',
+        'rotation' => 'double',
+        'fileFormat' => 'string',
+        'rectangle' => '\GroupDocs\Parser\Model\Rectangle'
     ];
 
     /*
@@ -64,7 +68,11 @@ class Image implements ArrayAccess
      */
     protected static $swaggerFormats = [
         'path' => null,
-        'downloadUrl' => null
+        'downloadUrl' => null,
+        'pageIndex' => 'int32',
+        'rotation' => 'double',
+        'fileFormat' => null,
+        'rectangle' => null
     ];
 
     /*
@@ -95,7 +103,11 @@ class Image implements ArrayAccess
      */
     protected static $attributeMap = [
         'path' => 'Path',
-        'downloadUrl' => 'DownloadUrl'
+        'downloadUrl' => 'DownloadUrl',
+        'pageIndex' => 'PageIndex',
+        'rotation' => 'Rotation',
+        'fileFormat' => 'FileFormat',
+        'rectangle' => 'Rectangle'
     ];
 
     /*
@@ -105,7 +117,11 @@ class Image implements ArrayAccess
      */
     protected static $setters = [
         'path' => 'setPath',
-        'downloadUrl' => 'setDownloadUrl'
+        'downloadUrl' => 'setDownloadUrl',
+        'pageIndex' => 'setPageIndex',
+        'rotation' => 'setRotation',
+        'fileFormat' => 'setFileFormat',
+        'rectangle' => 'setRectangle'
     ];
 
     /*
@@ -115,7 +131,11 @@ class Image implements ArrayAccess
      */
     protected static $getters = [
         'path' => 'getPath',
-        'downloadUrl' => 'getDownloadUrl'
+        'downloadUrl' => 'getDownloadUrl',
+        'pageIndex' => 'getPageIndex',
+        'rotation' => 'getRotation',
+        'fileFormat' => 'getFileFormat',
+        'rectangle' => 'getRectangle'
     ];
 
     /*
@@ -180,6 +200,10 @@ class Image implements ArrayAccess
     {
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
         $this->container['downloadUrl'] = isset($data['downloadUrl']) ? $data['downloadUrl'] : null;
+        $this->container['pageIndex'] = isset($data['pageIndex']) ? $data['pageIndex'] : null;
+        $this->container['rotation'] = isset($data['rotation']) ? $data['rotation'] : null;
+        $this->container['fileFormat'] = isset($data['fileFormat']) ? $data['fileFormat'] : null;
+        $this->container['rectangle'] = isset($data['rectangle']) ? $data['rectangle'] : null;
     }
 
     /*
@@ -251,6 +275,102 @@ class Image implements ArrayAccess
     public function setDownloadUrl($downloadUrl)
     {
         $this->container['downloadUrl'] = $downloadUrl;
+
+        return $this;
+    }
+
+    /*
+     * Gets pageIndex
+     *
+     * @return int
+     */
+    public function getPageIndex()
+    {
+        return $this->container['pageIndex'];
+    }
+
+    /*
+     * Sets pageIndex
+     *
+     * @param int $pageIndex Gets or sets the index of the page.
+     *
+     * @return $this
+     */
+    public function setPageIndex($pageIndex)
+    {
+        $this->container['pageIndex'] = $pageIndex;
+
+        return $this;
+    }
+
+    /*
+     * Gets rotation
+     *
+     * @return double
+     */
+    public function getRotation()
+    {
+        return $this->container['rotation'];
+    }
+
+    /*
+     * Sets rotation
+     *
+     * @param double $rotation Gets or sets the rotation of the image in degrees.
+     *
+     * @return $this
+     */
+    public function setRotation($rotation)
+    {
+        $this->container['rotation'] = $rotation;
+
+        return $this;
+    }
+
+    /*
+     * Gets fileFormat
+     *
+     * @return string
+     */
+    public function getFileFormat()
+    {
+        return $this->container['fileFormat'];
+    }
+
+    /*
+     * Sets fileFormat
+     *
+     * @param string $fileFormat Gets or sets the image file format.
+     *
+     * @return $this
+     */
+    public function setFileFormat($fileFormat)
+    {
+        $this->container['fileFormat'] = $fileFormat;
+
+        return $this;
+    }
+
+    /*
+     * Gets rectangle
+     *
+     * @return \GroupDocs\Parser\Model\Rectangle
+     */
+    public function getRectangle()
+    {
+        return $this->container['rectangle'];
+    }
+
+    /*
+     * Sets rectangle
+     *
+     * @param \GroupDocs\Parser\Model\Rectangle $rectangle Gets or sets the rectangle area of the image.
+     *
+     * @return $this
+     */
+    public function setRectangle($rectangle)
+    {
+        $this->container['rectangle'] = $rectangle;
 
         return $this;
     }
