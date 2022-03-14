@@ -115,4 +115,16 @@ class ParserTextApiTest extends BaseApiTest
 
         $response = self::$parseApi->text($request);
     }
+
+    public function testExtractText_Md()
+    {
+        $testFile = Internal\TestFiles::getFileMd();
+        $options = new TextOptions();
+        $options->setFileInfo($testFile->ToFileInfo());
+        $request = new Requests\textRequest($options);
+
+        $response = self::$parseApi->text($request);
+        $this->assertNotNull($response->getText());
+        $this->assertEquals("# Test\r\rText for test:\r\r\tOne\r\tTwo\r\tSub1\rSub2\r\tThree\r\rBullets:\r\rA\rAA\rB\rC\f", $response->getText());
+    }
 }

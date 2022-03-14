@@ -130,6 +130,27 @@ class TestFiles
         $file->folder = "folder/";
         return $file;
     }
+    public static function getFileTar()
+    {
+        $file = new TestFile();
+        $file->fileName = "sample.tar";
+        $file->folder = "containers\\archive\\";
+        return $file;
+    }
+    public static function getFileRar()
+    {
+        $file = new TestFile();
+        $file->fileName = "sample.rar";
+        $file->folder = "containers\\archive\\";
+        return $file;
+    }
+    public static function getFileMd()
+    {
+        $file = new TestFile();
+        $file->fileName = "sample.md";
+        $file->folder = "words\\docx\\";
+        return $file;
+    }
 
     public static function getTestFilesList()
     {
@@ -145,7 +166,10 @@ class TestFiles
             self::getFileJpegFile(),
             self::getFileImageAndAttachment(),
             self::getFilePdf(),
-            self::getFilePdfContainer()
+            self::getFilePdfContainer(),
+            self::getFileTar(),
+            self::getFileRar(),
+            self::getFileMd()
         );
     }
 }

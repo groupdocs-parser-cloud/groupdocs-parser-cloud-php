@@ -83,4 +83,40 @@ class ParserContainerApiTest extends BaseApiTest
 
         $response = self::$infoApi->container($request);
     }
+
+    public function test_get_container_item_info_rar()
+    {
+        $testFile = Internal\TestFiles::getFileRar();
+        $options = new ContainerOptions();
+        $options->setFileInfo($testFile->ToFileInfo());
+        $request = new Requests\containerRequest($options);
+
+        $response = self::$infoApi->container($request);
+        $this->assertNotNull($response);
+        $this->assertEquals(2, count($response->getContainerItems()));
+        $itemNames = array(
+            "sample.docx", "sample.pdf"
+        );
+        foreach ($response->getContainerItems() as $key => $value) {
+            $this->assertTrue(in_array($value->getName(), $itemNames));
+        }
+    }
+
+    public function test_get_container_item_info_tar()
+    {
+        $testFile = Internal\TestFiles::getFileTar();
+        $options = new ContainerOptions();
+        $options->setFileInfo($testFile->ToFileInfo());
+        $request = new Requests\containerRequest($options);
+
+        $response = self::$infoApi->container($request);
+        $this->assertNotNull($response);
+        $this->assertEquals(5, count($response->getContainerItems()));
+        $itemNames = array(
+            "sample.docx", "sample.pdf", "1200px-RedPandaFullBody.JPG", "images.pdf", "th.jpg"
+        );
+        foreach ($response->getContainerItems() as $key => $value) {
+            $this->assertTrue(in_array($value->getName(), $itemNames));
+        }
+    }
 }

@@ -125,30 +125,28 @@ class TemplateApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                if ($e->hasResponse()) {
-                    $responseBody = $e->getResponse()->getBody();
-                    $content = $responseBody->getContents();
-                    $error = json_decode($content);
-                    if (is_object($error)) {
-                        if ($error->error != null) {
-                            if (is_object($error->error)) {
-                                $errorMessage = $error->error->message != null ? $error->error->message : $e->getMessage();
-                            } else if (is_string($error->error)) {
-                                $errorMessage = $error->error;
-                            } else {
-                                $errorMessage = $e->getMessage();
-                            }
-                        }
-                    } else if (is_string($error)) {
-                        $errorMessage = $error;
-                    } else {
-                        $errorMessage = $e->getMessage();
-                    }
-                } else {
-                    $errorMessage = $e->getMessage();
-                }
+                $responseBody = $e->getResponse()->getBody();
+                $content = $responseBody->getContents();
+                $error = json_decode($content);
 
                 $errorCode = $e->getCode();
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+   
+                    throw new ApiException($errorMessage, $errorCode);
+                } 
+                
                 throw new ApiException($errorMessage, $errorCode);
             }
 
@@ -409,30 +407,28 @@ class TemplateApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                if ($e->hasResponse()) {
-                    $responseBody = $e->getResponse()->getBody();
-                    $content = $responseBody->getContents();
-                    $error = json_decode($content);
-                    if (is_object($error)) {
-                        if ($error->error != null) {
-                            if (is_object($error->error)) {
-                                $errorMessage = $error->error->message != null ? $error->error->message : $e->getMessage();
-                            } else if (is_string($error->error)) {
-                                $errorMessage = $error->error;
-                            } else {
-                                $errorMessage = $e->getMessage();
-                            }
-                        }
-                    } else if (is_string($error)) {
-                        $errorMessage = $error;
-                    } else {
-                        $errorMessage = $e->getMessage();
-                    }
-                } else {
-                    $errorMessage = $e->getMessage();
-                }
+                $responseBody = $e->getResponse()->getBody();
+                $content = $responseBody->getContents();
+                $error = json_decode($content);
 
                 $errorCode = $e->getCode();
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+   
+                    throw new ApiException($errorMessage, $errorCode);
+                } 
+                
                 throw new ApiException($errorMessage, $errorCode);
             }
 
@@ -654,30 +650,28 @@ class TemplateApi
             try {
                 $response = $this->client->send($request, $options);
             } catch (RequestException $e) {
-                if ($e->hasResponse()) {
-                    $responseBody = $e->getResponse()->getBody();
-                    $content = $responseBody->getContents();
-                    $error = json_decode($content);
-                    if (is_object($error)) {
-                        if ($error->error != null) {
-                            if (is_object($error->error)) {
-                                $errorMessage = $error->error->message != null ? $error->error->message : $e->getMessage();
-                            } else if (is_string($error->error)) {
-                                $errorMessage = $error->error;
-                            } else {
-                                $errorMessage = $e->getMessage();
-                            }
-                        }
-                    } else if (is_string($error)) {
-                        $errorMessage = $error;
-                    } else {
-                        $errorMessage = $e->getMessage();
-                    }
-                } else {
-                    $errorMessage = $e->getMessage();
-                }
+                $responseBody = $e->getResponse()->getBody();
+                $content = $responseBody->getContents();
+                $error = json_decode($content);
 
                 $errorCode = $e->getCode();
+                if(property_exists($error, 'message')) {
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->message != null
+                        ? $error->message
+                        : $e->getMessage();
+
+                    throw new ApiException($errorMessage, $errorCode);
+                }
+                else {                    
+                    $errorCode = $e->getCode();
+                    $errorMessage = $error != null && $error->error->message != null
+                        ? $error->error->message
+                        : $e->getMessage();
+   
+                    throw new ApiException($errorMessage, $errorCode);
+                } 
+                
                 throw new ApiException($errorMessage, $errorCode);
             }
 
