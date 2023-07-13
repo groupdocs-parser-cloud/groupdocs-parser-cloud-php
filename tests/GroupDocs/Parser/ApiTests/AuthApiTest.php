@@ -37,10 +37,9 @@ class AuthApiTest extends \PHPUnit\Framework\TestCase
      */
     public function testErrorWhenAppSidNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/invalid_client/"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("/invalid_client/");
+
 
         $config = self::getConfig();
         $apiBaseUrl = $config["ApiBaseUrl"];
@@ -60,10 +59,8 @@ class AuthApiTest extends \PHPUnit\Framework\TestCase
      */
     public function testErrorWhenAppKeyNotFound()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/invalid_client/"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("/invalid_client/");
 
         $config = self::getConfig();
         $apiBaseUrl = $config["ApiBaseUrl"];

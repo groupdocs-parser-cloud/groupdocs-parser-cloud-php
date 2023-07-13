@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="FileApi.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1637,7 +1637,7 @@ class FileApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="copyFileRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1714,7 +1714,7 @@ class copyFileRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="deleteFileRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1777,7 +1777,7 @@ class deleteFileRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="downloadFileRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1840,7 +1840,7 @@ class downloadFileRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="moveFileRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1917,7 +1917,7 @@ class moveFileRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="uploadFileRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy

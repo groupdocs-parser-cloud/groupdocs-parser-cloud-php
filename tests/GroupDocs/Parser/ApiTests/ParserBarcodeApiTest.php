@@ -1,8 +1,9 @@
 <?php
+
 /**
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="ApiException.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ * <copyright company="Aspose Pty Ltd" file="ParserImageApiTest.php">
+ *   Copyright (c) 2003-2019 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -11,10 +12,10 @@
  *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  *  copies of the Software, and to permit persons to whom the Software is
  *  furnished to do so, subject to the following conditions:
- * 
+ *
  *  The above copyright notice and this permission notice shall be included in all
  *  copies or substantial portions of the Software.
- * 
+ *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -26,25 +27,26 @@
  * --------------------------------------------------------------------------------------------------------------------
  */
 
-namespace GroupDocs\Parser;
+namespace GroupDocs\Parser\ApiTests;
 
-use \Exception;
+use GroupDocs\Parser\Model\Requests;
+use GroupDocs\Parser\Model\BarcodesOptions;
 
-/**
- * ApiException class for exception
- */
-class ApiException extends Exception
+require_once "BaseApiTest.php";
+
+class ParserBarcodeApiTest extends BaseApiTest
 {
-    /**
-     * Constructor
-     *
-     * @param string        $message         Error message
-     * @param int           $code            HTTP status code
-     * @param string[]|null $responseHeaders HTTP response header
-     * @param mixed         $responseBody    HTTP decoded body of the server response either as \stdClass or string
-     */
-    public function __construct($message = "", $code = 0)
+    public function testGetBarcode_Docx()
     {
-        parent::__construct($message, $code);
+        $testFile = Internal\TestFiles::getFileBarcodes();
+        $options = new BarcodesOptions();
+        $options->setFileInfo($testFile->ToFileInfo());
+        $request = new Requests\barcodesRequest($options);
+
+        $response = self::$parseApi->barcodes($request);
+        $this->assertNotNull($response);
+        foreach ($response->getBarcodes() as $key => $barcode) {
+            $this->assertNotNull($barcode->getValue());
+        }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="TemplateResult.php">
+ * <copyright company="Aspose Pty Ltd" file="Barcode.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \GroupDocs\Parser\ObjectSerializer;
 
 /*
- * TemplateResult
+ * Barcode
  *
- * @description Document template result.
+ * @description Represents an barcode.
  */
-class TemplateResult implements ArrayAccess
+class Barcode implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class TemplateResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "TemplateResult";
+    protected static $swaggerModelName = "Barcode";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +53,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'url' => 'string',
-        'templatePath' => 'string'
+        'codeTypeName' => 'string',
+        'value' => 'string',
+        'downloadUrl' => 'string'
     ];
 
     /*
@@ -63,8 +64,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'url' => null,
-        'templatePath' => null
+        'codeTypeName' => null,
+        'value' => null,
+        'downloadUrl' => null
     ];
 
     /*
@@ -94,8 +96,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url' => 'Url',
-        'templatePath' => 'TemplatePath'
+        'codeTypeName' => 'CodeTypeName',
+        'value' => 'Value',
+        'downloadUrl' => 'DownloadUrl'
     ];
 
     /*
@@ -104,8 +107,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url' => 'setUrl',
-        'templatePath' => 'setTemplatePath'
+        'codeTypeName' => 'setCodeTypeName',
+        'value' => 'setValue',
+        'downloadUrl' => 'setDownloadUrl'
     ];
 
     /*
@@ -114,8 +118,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url' => 'getUrl',
-        'templatePath' => 'getTemplatePath'
+        'codeTypeName' => 'getCodeTypeName',
+        'value' => 'getValue',
+        'downloadUrl' => 'getDownloadUrl'
     ];
 
     /*
@@ -178,8 +183,9 @@ class TemplateResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['templatePath'] = isset($data['templatePath']) ? $data['templatePath'] : null;
+        $this->container['codeTypeName'] = isset($data['codeTypeName']) ? $data['codeTypeName'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['downloadUrl'] = isset($data['downloadUrl']) ? $data['downloadUrl'] : null;
     }
 
     /*
@@ -208,49 +214,73 @@ class TemplateResult implements ArrayAccess
 
 
     /*
-     * Gets url
+     * Gets codeTypeName
      *
      * @return string
      */
-    public function getUrl()
+    public function getCodeTypeName()
     {
-        return $this->container['url'];
+        return $this->container['codeTypeName'];
     }
 
     /*
-     * Sets url
+     * Sets codeTypeName
      *
-     * @param string $url Gets or sets the template download URL.
+     * @param string $codeTypeName Gets the name of the barcode type.
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setCodeTypeName($codeTypeName)
     {
-        $this->container['url'] = $url;
+        $this->container['codeTypeName'] = $codeTypeName;
 
         return $this;
     }
 
     /*
-     * Gets templatePath
+     * Gets value
      *
      * @return string
      */
-    public function getTemplatePath()
+    public function getValue()
     {
-        return $this->container['templatePath'];
+        return $this->container['value'];
     }
 
     /*
-     * Sets templatePath
+     * Sets value
      *
-     * @param string $templatePath Gets or sets the path of the template, located in the storage.
+     * @param string $value Gets the barcode value.
      *
      * @return $this
      */
-    public function setTemplatePath($templatePath)
+    public function setValue($value)
     {
-        $this->container['templatePath'] = $templatePath;
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /*
+     * Gets downloadUrl
+     *
+     * @return string
+     */
+    public function getDownloadUrl()
+    {
+        return $this->container['downloadUrl'];
+    }
+
+    /*
+     * Sets downloadUrl
+     *
+     * @param string $downloadUrl Gets or sets the barcode download URL.
+     *
+     * @return $this
+     */
+    public function setDownloadUrl($downloadUrl)
+    {
+        $this->container['downloadUrl'] = $downloadUrl;
 
         return $this;
     }

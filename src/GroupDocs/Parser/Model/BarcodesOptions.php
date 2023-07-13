@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="TemplateResult.php">
+ * <copyright company="Aspose Pty Ltd" file="BarcodesOptions.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -27,16 +27,14 @@
  */
 
 namespace GroupDocs\Parser\Model;
-
-use \ArrayAccess;
 use \GroupDocs\Parser\ObjectSerializer;
 
 /*
- * TemplateResult
+ * BarcodesOptions
  *
- * @description Document template result.
+ * @description Barcode options.
  */
-class TemplateResult implements ArrayAccess
+class BarcodesOptions extends ParserOptions 
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +43,7 @@ class TemplateResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "TemplateResult";
+    protected static $swaggerModelName = "BarcodesOptions";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +51,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'url' => 'string',
-        'templatePath' => 'string'
+        'outputPath' => 'string',
+        'startPageNumber' => 'int',
+        'countPagesToExtract' => 'int'
     ];
 
     /*
@@ -63,8 +62,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'url' => null,
-        'templatePath' => null
+        'outputPath' => null,
+        'startPageNumber' => 'int32',
+        'countPagesToExtract' => 'int32'
     ];
 
     /*
@@ -74,7 +74,7 @@ class TemplateResult implements ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /*
@@ -84,7 +84,7 @@ class TemplateResult implements ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /*
@@ -94,8 +94,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url' => 'Url',
-        'templatePath' => 'TemplatePath'
+        'outputPath' => 'OutputPath',
+        'startPageNumber' => 'StartPageNumber',
+        'countPagesToExtract' => 'CountPagesToExtract'
     ];
 
     /*
@@ -104,8 +105,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url' => 'setUrl',
-        'templatePath' => 'setTemplatePath'
+        'outputPath' => 'setOutputPath',
+        'startPageNumber' => 'setStartPageNumber',
+        'countPagesToExtract' => 'setCountPagesToExtract'
     ];
 
     /*
@@ -114,8 +116,9 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url' => 'getUrl',
-        'templatePath' => 'getTemplatePath'
+        'outputPath' => 'getOutputPath',
+        'startPageNumber' => 'getStartPageNumber',
+        'countPagesToExtract' => 'getCountPagesToExtract'
     ];
 
     /*
@@ -126,7 +129,7 @@ class TemplateResult implements ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /*
@@ -136,7 +139,7 @@ class TemplateResult implements ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /*
@@ -146,7 +149,7 @@ class TemplateResult implements ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /*
@@ -163,12 +166,6 @@ class TemplateResult implements ArrayAccess
 
     
 
-    /*
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /*
      * Constructor
@@ -178,8 +175,11 @@ class TemplateResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['templatePath'] = isset($data['templatePath']) ? $data['templatePath'] : null;
+        parent::__construct($data);
+
+        $this->container['outputPath'] = isset($data['outputPath']) ? $data['outputPath'] : null;
+        $this->container['startPageNumber'] = isset($data['startPageNumber']) ? $data['startPageNumber'] : null;
+        $this->container['countPagesToExtract'] = isset($data['countPagesToExtract']) ? $data['countPagesToExtract'] : null;
     }
 
     /*
@@ -189,7 +189,7 @@ class TemplateResult implements ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -202,55 +202,82 @@ class TemplateResult implements ArrayAccess
      */
     public function valid()
     {
+        if (!parent::valid()) {
+            return false;
+        }
 
         return true;
     }
 
 
     /*
-     * Gets url
+     * Gets outputPath
      *
      * @return string
      */
-    public function getUrl()
+    public function getOutputPath()
     {
-        return $this->container['url'];
+        return $this->container['outputPath'];
     }
 
     /*
-     * Sets url
+     * Sets outputPath
      *
-     * @param string $url Gets or sets the template download URL.
+     * @param string $outputPath Gets or sets the output path for extracted barcodes.
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setOutputPath($outputPath)
     {
-        $this->container['url'] = $url;
+        $this->container['outputPath'] = $outputPath;
 
         return $this;
     }
 
     /*
-     * Gets templatePath
+     * Gets startPageNumber
      *
-     * @return string
+     * @return int
      */
-    public function getTemplatePath()
+    public function getStartPageNumber()
     {
-        return $this->container['templatePath'];
+        return $this->container['startPageNumber'];
     }
 
     /*
-     * Sets templatePath
+     * Sets startPageNumber
      *
-     * @param string $templatePath Gets or sets the path of the template, located in the storage.
+     * @param int $startPageNumber Gets or sets the zero-based start page index.
      *
      * @return $this
      */
-    public function setTemplatePath($templatePath)
+    public function setStartPageNumber($startPageNumber)
     {
-        $this->container['templatePath'] = $templatePath;
+        $this->container['startPageNumber'] = $startPageNumber;
+
+        return $this;
+    }
+
+    /*
+     * Gets countPagesToExtract
+     *
+     * @return int
+     */
+    public function getCountPagesToExtract()
+    {
+        return $this->container['countPagesToExtract'];
+    }
+
+    /*
+     * Sets countPagesToExtract
+     *
+     * @param int $countPagesToExtract Gets or sets the number of pages to extract.
+     *
+     * @return $this
+     */
+    public function setCountPagesToExtract($countPagesToExtract)
+    {
+        $this->container['countPagesToExtract'] = $countPagesToExtract;
 
         return $this;
     }

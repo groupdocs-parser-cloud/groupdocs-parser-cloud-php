@@ -46,10 +46,8 @@ class ParserParseApiTest extends BaseApiTest
 {
     public function testParseDocument_FileNotFoundResult()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Can't find file located at 'folder\/file-not-exist.pdf'./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Can't find file located at 'folder/file-not-exist.pdf'.");
 
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new ParseOptions();
@@ -63,10 +61,8 @@ class ParserParseApiTest extends BaseApiTest
 
     public function testParseDocument_IncorrectPassword()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Password provided for file 'words\\\\docx\\\\password-protected.docx' is incorrect./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";
@@ -106,10 +102,8 @@ class ParserParseApiTest extends BaseApiTest
 
     public function testParseDocument_NotSupportedFile()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/The specified file 'image\\\\jpeg\\\\document.jpeg' has type which is not currently supported./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("The specified file 'image\jpeg\document.jpeg' has type which is not currently supported.");
 
         $testFile = Internal\TestFiles::getFileJpegFile();
         $options = new ParseOptions();

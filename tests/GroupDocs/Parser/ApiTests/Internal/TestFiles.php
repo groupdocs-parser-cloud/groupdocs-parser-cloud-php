@@ -59,6 +59,13 @@ class TestFiles
         $file->folder = "words\\docx\\";
         return $file;
     }
+    public static function getFileBarcodes()
+    {
+        $file = new TestFile();
+        $file->fileName = "barcodes.docx";
+        $file->folder = "words\\docx\\";
+        return $file;
+    }
     public static function getFileTemplateDocumentDocx()
     {
         $file = new TestFile();
@@ -149,6 +156,14 @@ class TestFiles
         $file = new TestFile();
         $file->fileName = "sample.md";
         $file->folder = "words\\docx\\";
+        return $file;
+    }
+
+    public static function getFileVideo()
+    {
+        $file = new TestFile();
+        $file->fileName = "sample.avi";
+        $file->folder = "video\\avi\\";
         return $file;
     }
 

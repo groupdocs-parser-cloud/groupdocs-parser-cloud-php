@@ -90,10 +90,8 @@ class ParserImageApiTest extends BaseApiTest
 
     public function testGetImage_Pdf_FromPages_OutOfThePageRange()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Request parameters missing or have incorrect format/"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Request parameters missing or have incorrect format");
 
         $testFile = Internal\TestFiles::getFilePdf();
         $options = new ImagesOptions();
@@ -107,10 +105,8 @@ class ParserImageApiTest extends BaseApiTest
 
     public function testGetImage_Pdf_Container_FromPages_Error()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/The specified file 'containers\\\\archive\\\\docx.zip' has type which is not currently supported./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("The specified file 'containers\archive\docx.zip' has type which is not currently supported.");
 
         $testFile = Internal\TestFiles::getFileZip();
         $options = new ImagesOptions();
@@ -124,10 +120,8 @@ class ParserImageApiTest extends BaseApiTest
 
     public function testGetImage_FileNotFoundResult()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Can't find file located at 'folder\/file-not-exist.pdf'./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Can't find file located at 'folder/file-not-exist.pdf'.");
 
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new ImagesOptions();
@@ -139,10 +133,8 @@ class ParserImageApiTest extends BaseApiTest
 
     public function testGetImage_IncorrectPassword()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Password provided for file 'words\\\\docx\\\\password-protected.docx' is incorrect./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";

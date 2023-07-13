@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="TemplateResult.php">
+ * <copyright company="Aspose Pty Ltd" file="BarcodePage.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \GroupDocs\Parser\ObjectSerializer;
 
 /*
- * TemplateResult
+ * BarcodePage
  *
- * @description Document template result.
+ * @description Represents page object with barcode.
  */
-class TemplateResult implements ArrayAccess
+class BarcodePage implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class TemplateResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "TemplateResult";
+    protected static $swaggerModelName = "BarcodePage";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +53,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'url' => 'string',
-        'templatePath' => 'string'
+        'index' => 'int'
     ];
 
     /*
@@ -63,8 +62,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'url' => null,
-        'templatePath' => null
+        'index' => 'int32'
     ];
 
     /*
@@ -94,8 +92,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url' => 'Url',
-        'templatePath' => 'TemplatePath'
+        'index' => 'Index'
     ];
 
     /*
@@ -104,8 +101,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url' => 'setUrl',
-        'templatePath' => 'setTemplatePath'
+        'index' => 'setIndex'
     ];
 
     /*
@@ -114,8 +110,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url' => 'getUrl',
-        'templatePath' => 'getTemplatePath'
+        'index' => 'getIndex'
     ];
 
     /*
@@ -178,8 +173,7 @@ class TemplateResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['templatePath'] = isset($data['templatePath']) ? $data['templatePath'] : null;
+        $this->container['index'] = isset($data['index']) ? $data['index'] : null;
     }
 
     /*
@@ -208,49 +202,25 @@ class TemplateResult implements ArrayAccess
 
 
     /*
-     * Gets url
+     * Gets index
      *
-     * @return string
+     * @return int
      */
-    public function getUrl()
+    public function getIndex()
     {
-        return $this->container['url'];
+        return $this->container['index'];
     }
 
     /*
-     * Sets url
+     * Sets index
      *
-     * @param string $url Gets or sets the template download URL.
+     * @param int $index The index of the page.
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setIndex($index)
     {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /*
-     * Gets templatePath
-     *
-     * @return string
-     */
-    public function getTemplatePath()
-    {
-        return $this->container['templatePath'];
-    }
-
-    /*
-     * Sets templatePath
-     *
-     * @param string $templatePath Gets or sets the path of the template, located in the storage.
-     *
-     * @return $this
-     */
-    public function setTemplatePath($templatePath)
-    {
-        $this->container['templatePath'] = $templatePath;
+        $this->container['index'] = $index;
 
         return $this;
     }

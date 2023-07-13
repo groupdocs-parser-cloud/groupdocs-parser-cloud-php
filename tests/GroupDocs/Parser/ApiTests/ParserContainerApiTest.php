@@ -56,10 +56,8 @@ class ParserContainerApiTest extends BaseApiTest
 
     public function test_get_container_item_info_file_not_found_result()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Can't find file located at 'folder\/file-not-exist.pdf'./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Can't find file located at 'folder/file-not-exist.pdf'.");
 
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new ContainerOptions();
@@ -71,12 +69,10 @@ class ParserContainerApiTest extends BaseApiTest
 
     public function test_get_container_item_info_unsupported_file()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/The specified file 'words\\\\docx\\\\four-pages.docx' has type which is not currently supported./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("The specified file 'video\avi\sample.avi");
 
-        $testFile = Internal\TestFiles::getFileFourPages();
+        $testFile = Internal\TestFiles::getFileVideo();
         $options = new ContainerOptions();
         $options->setFileInfo($testFile->ToFileInfo());
         $request = new Requests\containerRequest($options);

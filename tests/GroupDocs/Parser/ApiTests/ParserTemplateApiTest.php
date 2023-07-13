@@ -104,10 +104,8 @@ class ParserTemplateApiTest extends BaseApiTest
 
     public function testTemplate_FileNotFoundResult()
     {
-        $this->setExpectedExceptionRegExp(
-            \GroupDocs\Parser\ApiException::class,
-            "/Can't find file located at 'notExistTemplate.json'./"
-        );
+        $this->expectException(\GroupDocs\Parser\ApiException::class);
+        $this->expectExceptionMessageMatches("Can't find file located at 'notExistTemplate.json'.");
 
         $deleteOptions = new TemplateOptions();
         $deleteOptions->setTemplatePath("notExistTemplate.json");

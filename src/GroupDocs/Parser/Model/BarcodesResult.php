@@ -1,7 +1,7 @@
 <?php
 /*
  * --------------------------------------------------------------------------------------------------------------------
- * <copyright company="Aspose Pty Ltd" file="TemplateResult.php">
+ * <copyright company="Aspose Pty Ltd" file="BarcodesResult.php">
  *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
@@ -32,11 +32,11 @@ use \ArrayAccess;
 use \GroupDocs\Parser\ObjectSerializer;
 
 /*
- * TemplateResult
+ * BarcodesResult
  *
- * @description Document template result.
+ * @description Barcodes result.
  */
-class TemplateResult implements ArrayAccess
+class BarcodesResult implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -45,7 +45,7 @@ class TemplateResult implements ArrayAccess
      *
      * @var string
      */
-    protected static $swaggerModelName = "TemplateResult";
+    protected static $swaggerModelName = "BarcodesResult";
 
     /*
      * Array of property to type mappings. Used for (de)serialization
@@ -53,8 +53,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'url' => 'string',
-        'templatePath' => 'string'
+        'barcodes' => '\GroupDocs\Parser\Model\Barcode[]'
     ];
 
     /*
@@ -63,8 +62,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'url' => null,
-        'templatePath' => null
+        'barcodes' => null
     ];
 
     /*
@@ -94,8 +92,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url' => 'Url',
-        'templatePath' => 'TemplatePath'
+        'barcodes' => 'Barcodes'
     ];
 
     /*
@@ -104,8 +101,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url' => 'setUrl',
-        'templatePath' => 'setTemplatePath'
+        'barcodes' => 'setBarcodes'
     ];
 
     /*
@@ -114,8 +110,7 @@ class TemplateResult implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url' => 'getUrl',
-        'templatePath' => 'getTemplatePath'
+        'barcodes' => 'getBarcodes'
     ];
 
     /*
@@ -178,8 +173,7 @@ class TemplateResult implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['templatePath'] = isset($data['templatePath']) ? $data['templatePath'] : null;
+        $this->container['barcodes'] = isset($data['barcodes']) ? $data['barcodes'] : null;
     }
 
     /*
@@ -208,49 +202,25 @@ class TemplateResult implements ArrayAccess
 
 
     /*
-     * Gets url
+     * Gets barcodes
      *
-     * @return string
+     * @return \GroupDocs\Parser\Model\Barcode[]
      */
-    public function getUrl()
+    public function getBarcodes()
     {
-        return $this->container['url'];
+        return $this->container['barcodes'];
     }
 
     /*
-     * Sets url
+     * Sets barcodes
      *
-     * @param string $url Gets or sets the template download URL.
+     * @param \GroupDocs\Parser\Model\Barcode[] $barcodes Gets or sets a collection of barcodes.
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setBarcodes($barcodes)
     {
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /*
-     * Gets templatePath
-     *
-     * @return string
-     */
-    public function getTemplatePath()
-    {
-        return $this->container['templatePath'];
-    }
-
-    /*
-     * Sets templatePath
-     *
-     * @param string $templatePath Gets or sets the path of the template, located in the storage.
-     *
-     * @return $this
-     */
-    public function setTemplatePath($templatePath)
-    {
-        $this->container['templatePath'] = $templatePath;
+        $this->container['barcodes'] = $barcodes;
 
         return $this;
     }

@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="TemplateApi.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1012,7 +1012,7 @@ class TemplateApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="createTemplateRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1061,7 +1061,7 @@ class createTemplateRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="deleteTemplateRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1110,7 +1110,7 @@ class deleteTemplateRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getTemplateRequest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) 2003-2023 Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
