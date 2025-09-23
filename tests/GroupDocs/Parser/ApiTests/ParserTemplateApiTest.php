@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ParserTemplateApiTest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -39,9 +39,9 @@ use GroupDocs\Parser\Model\DetectorParameters;
 use GroupDocs\Parser\Model\CreateTemplateOptions;
 use GroupDocs\Parser\Model\Template;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserTemplateApiTest extends BaseApiTest
+class ParserTemplateApiTest extends BaseApiTestCase
 {
     public function testCreateTemplate()
     {
@@ -105,7 +105,7 @@ class ParserTemplateApiTest extends BaseApiTest
     public function testTemplate_FileNotFoundResult()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Can't find file located at 'notExistTemplate.json'.");
+        $this->expectExceptionMessage("Can't find file located at 'notExistTemplate.json'.");
 
         $deleteOptions = new TemplateOptions();
         $deleteOptions->setTemplatePath("notExistTemplate.json");

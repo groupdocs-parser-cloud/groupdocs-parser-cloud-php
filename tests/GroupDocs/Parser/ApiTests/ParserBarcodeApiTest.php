@@ -3,7 +3,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ParserImageApiTest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,9 +32,9 @@ namespace GroupDocs\Parser\ApiTests;
 use GroupDocs\Parser\Model\Requests;
 use GroupDocs\Parser\Model\BarcodesOptions;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserBarcodeApiTest extends BaseApiTest
+class ParserBarcodeApiTest extends BaseApiTestCase
 {
     public function testGetBarcode_Docx()
     {

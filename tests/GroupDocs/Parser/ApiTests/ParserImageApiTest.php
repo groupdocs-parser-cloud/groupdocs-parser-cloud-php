@@ -3,7 +3,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ParserImageApiTest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,9 +33,9 @@ use GroupDocs\Parser\Model\ContainerItemInfo;
 use GroupDocs\Parser\Model\Requests;
 use GroupDocs\Parser\Model\ImagesOptions;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserImageApiTest extends BaseApiTest
+class ParserImageApiTest extends BaseApiTestCase
 {
     public function testGetImage_Docx()
     {
@@ -91,7 +91,7 @@ class ParserImageApiTest extends BaseApiTest
     public function testGetImage_Pdf_FromPages_OutOfThePageRange()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Request parameters missing or have incorrect format");
+        $this->expectExceptionMessage("Request parameters missing or have incorrect format");
 
         $testFile = Internal\TestFiles::getFilePdf();
         $options = new ImagesOptions();
@@ -106,7 +106,7 @@ class ParserImageApiTest extends BaseApiTest
     public function testGetImage_Pdf_Container_FromPages_Error()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("The specified file 'containers\archive\docx.zip' has type which is not currently supported.");
+        $this->expectExceptionMessage("The specified file 'containers\archive\docx.zip' has type which is not currently supported.");
 
         $testFile = Internal\TestFiles::getFileZip();
         $options = new ImagesOptions();
@@ -121,7 +121,7 @@ class ParserImageApiTest extends BaseApiTest
     public function testGetImage_FileNotFoundResult()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Can't find file located at 'folder/file-not-exist.pdf'.");
+        $this->expectExceptionMessage("Can't find file located at 'folder/file-not-exist.pdf'.");
 
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new ImagesOptions();
@@ -134,7 +134,7 @@ class ParserImageApiTest extends BaseApiTest
     public function testGetImage_IncorrectPassword()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
+        $this->expectExceptionMessage("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";

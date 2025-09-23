@@ -2,7 +2,7 @@
 /**
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose Pty Ltd" file="ParserFormatsApiTest.php">
-*   Copyright (c) 2003-2019 Aspose Pty Ltd
+*   Copyright (c) Aspose Pty Ltd
 * </copyright>
 * <summary>
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,9 +27,9 @@
 */
 namespace GroupDocs\Parser\ApiTests;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserFormatsApiTest extends BaseApiTest
+class ParserFormatsApiTest extends BaseApiTestCase
 {
     /**
      * Test case for getSupportedFileFormats

@@ -2,7 +2,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ParserTextApiTest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,9 +31,9 @@ use GroupDocs\Parser\Model\Requests;
 use GroupDocs\Parser\Model\TextOptions;
 use GroupDocs\Parser\Model\FormattedTextOptions;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserTextApiTest extends BaseApiTest
+class ParserTextApiTest extends BaseApiTestCase
 {
     public function testExtractText()
     {
@@ -63,10 +63,10 @@ class ParserTextApiTest extends BaseApiTest
         $this->assertNotNull($response->getPages());
         $pages = $response->getPages();
         $this->assertEquals(0, $pages[0]->getPageIndex());
-        $this->assertEquals("Text inside bookmark 0\r\n\r\nPage 0 heading\r\n\r\nPage Text - Page 0\r\n\r\n\fText inside bookmark 1\r\n\r\n", $pages[0]->getText());
+        $this->assertEquals("Text inside bookmark 0\n\nPage 0 heading\n\nPage Text - Page 0\n\n\fText inside bookmark 1\n\n", $pages[0]->getText());
     
         $this->assertEquals(3, $pages[3]->getPageIndex());
-        $this->assertEquals("\fText inside bookmark 3\r\n\r\nPage 3 heading\r\n\r\nPage Text - Page 3\r\n\r\n", $pages[3]->getText());
+        $this->assertEquals("\fText inside bookmark 3\n\nPage 3 heading\n\nPage Text - Page 3\n\n", $pages[3]->getText());
     }
 
     public function testExtractFormatted()

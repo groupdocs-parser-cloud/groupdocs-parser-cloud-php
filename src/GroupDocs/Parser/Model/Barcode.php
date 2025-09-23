@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="Barcode.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,6 +54,8 @@ class Barcode implements ArrayAccess
      */
     protected static $swaggerTypes = [
         'codeTypeName' => 'string',
+        'page' => '\GroupDocs\Parser\Model\BarcodePage',
+        'rectangle' => '\GroupDocs\Parser\Model\Rectangle',
         'value' => 'string',
         'downloadUrl' => 'string'
     ];
@@ -65,6 +67,8 @@ class Barcode implements ArrayAccess
      */
     protected static $swaggerFormats = [
         'codeTypeName' => null,
+        'page' => null,
+        'rectangle' => null,
         'value' => null,
         'downloadUrl' => null
     ];
@@ -97,6 +101,8 @@ class Barcode implements ArrayAccess
      */
     protected static $attributeMap = [
         'codeTypeName' => 'CodeTypeName',
+        'page' => 'Page',
+        'rectangle' => 'Rectangle',
         'value' => 'Value',
         'downloadUrl' => 'DownloadUrl'
     ];
@@ -108,6 +114,8 @@ class Barcode implements ArrayAccess
      */
     protected static $setters = [
         'codeTypeName' => 'setCodeTypeName',
+        'page' => 'setPage',
+        'rectangle' => 'setRectangle',
         'value' => 'setValue',
         'downloadUrl' => 'setDownloadUrl'
     ];
@@ -119,6 +127,8 @@ class Barcode implements ArrayAccess
      */
     protected static $getters = [
         'codeTypeName' => 'getCodeTypeName',
+        'page' => 'getPage',
+        'rectangle' => 'getRectangle',
         'value' => 'getValue',
         'downloadUrl' => 'getDownloadUrl'
     ];
@@ -184,6 +194,8 @@ class Barcode implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['codeTypeName'] = isset($data['codeTypeName']) ? $data['codeTypeName'] : null;
+        $this->container['page'] = isset($data['page']) ? $data['page'] : null;
+        $this->container['rectangle'] = isset($data['rectangle']) ? $data['rectangle'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['downloadUrl'] = isset($data['downloadUrl']) ? $data['downloadUrl'] : null;
     }
@@ -233,6 +245,54 @@ class Barcode implements ArrayAccess
     public function setCodeTypeName($codeTypeName)
     {
         $this->container['codeTypeName'] = $codeTypeName;
+
+        return $this;
+    }
+
+    /*
+     * Gets page
+     *
+     * @return \GroupDocs\Parser\Model\BarcodePage
+     */
+    public function getPage()
+    {
+        return $this->container['page'];
+    }
+
+    /*
+     * Sets page
+     *
+     * @param \GroupDocs\Parser\Model\BarcodePage $page Gets the document page information such as page index and page size.
+     *
+     * @return $this
+     */
+    public function setPage($page)
+    {
+        $this->container['page'] = $page;
+
+        return $this;
+    }
+
+    /*
+     * Gets rectangle
+     *
+     * @return \GroupDocs\Parser\Model\Rectangle
+     */
+    public function getRectangle()
+    {
+        return $this->container['rectangle'];
+    }
+
+    /*
+     * Sets rectangle
+     *
+     * @param \GroupDocs\Parser\Model\Rectangle $rectangle Gets the rectangular area.
+     *
+     * @return $this
+     */
+    public function setRectangle($rectangle)
+    {
+        $this->container['rectangle'] = $rectangle;
 
         return $this;
     }

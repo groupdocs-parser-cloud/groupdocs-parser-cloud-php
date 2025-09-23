@@ -3,7 +3,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ParserContainerApiTest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,9 +32,9 @@ namespace GroupDocs\Parser\ApiTests;
 use GroupDocs\Parser\Model\ContainerOptions;
 use GroupDocs\Parser\Model\Requests;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserContainerApiTest extends BaseApiTest
+class ParserContainerApiTest extends BaseApiTestCase
 {
     public function test_get_container_item_info()
     {
@@ -57,7 +57,7 @@ class ParserContainerApiTest extends BaseApiTest
     public function test_get_container_item_info_file_not_found_result()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Can't find file located at 'folder/file-not-exist.pdf'.");
+        $this->expectExceptionMessageMatches("/Can't find file located at 'folder\/file-not-exist.pdf'./");
 
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new ContainerOptions();
@@ -70,7 +70,7 @@ class ParserContainerApiTest extends BaseApiTest
     public function test_get_container_item_info_unsupported_file()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("The specified file 'video\avi\sample.avi");
+        $this->expectExceptionMessage("The specified file 'video\avi\sample.avi' has type which is not currently supported.");
 
         $testFile = Internal\TestFiles::getFileVideo();
         $options = new ContainerOptions();

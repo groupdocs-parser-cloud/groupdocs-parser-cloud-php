@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="BarcodePage.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,6 @@ use \GroupDocs\Parser\ObjectSerializer;
 /*
  * BarcodePage
  *
- * @description Represents page object with barcode.
  */
 class BarcodePage implements ArrayAccess
 {
@@ -53,7 +52,8 @@ class BarcodePage implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerTypes = [
-        'index' => 'int'
+        'index' => 'int',
+        'size' => '\GroupDocs\Parser\Model\Size'
     ];
 
     /*
@@ -62,7 +62,8 @@ class BarcodePage implements ArrayAccess
      * @var string[]
      */
     protected static $swaggerFormats = [
-        'index' => 'int32'
+        'index' => 'int32',
+        'size' => null
     ];
 
     /*
@@ -92,7 +93,8 @@ class BarcodePage implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'index' => 'Index'
+        'index' => 'Index',
+        'size' => 'Size'
     ];
 
     /*
@@ -101,7 +103,8 @@ class BarcodePage implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'index' => 'setIndex'
+        'index' => 'setIndex',
+        'size' => 'setSize'
     ];
 
     /*
@@ -110,7 +113,8 @@ class BarcodePage implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'index' => 'getIndex'
+        'index' => 'getIndex',
+        'size' => 'getSize'
     ];
 
     /*
@@ -174,6 +178,7 @@ class BarcodePage implements ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['index'] = isset($data['index']) ? $data['index'] : null;
+        $this->container['size'] = isset($data['size']) ? $data['size'] : null;
     }
 
     /*
@@ -185,6 +190,9 @@ class BarcodePage implements ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['index'] === null) {
+            $invalidProperties[] = "'index' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -197,6 +205,9 @@ class BarcodePage implements ArrayAccess
     public function valid()
     {
 
+        if ($this->container['index'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -214,13 +225,37 @@ class BarcodePage implements ArrayAccess
     /*
      * Sets index
      *
-     * @param int $index The index of the page.
+     * @param int $index Gets the page index.
      *
      * @return $this
      */
     public function setIndex($index)
     {
         $this->container['index'] = $index;
+
+        return $this;
+    }
+
+    /*
+     * Gets size
+     *
+     * @return \GroupDocs\Parser\Model\Size
+     */
+    public function getSize()
+    {
+        return $this->container['size'];
+    }
+
+    /*
+     * Sets size
+     *
+     * @param \GroupDocs\Parser\Model\Size $size Gets the page size.
+     *
+     * @return $this
+     */
+    public function setSize($size)
+    {
+        $this->container['size'] = $size;
 
         return $this;
     }

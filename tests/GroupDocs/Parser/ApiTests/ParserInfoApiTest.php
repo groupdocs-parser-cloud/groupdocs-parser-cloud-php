@@ -3,7 +3,7 @@
 /**
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="ParserInfoApiTest.php">
- *   Copyright (c) 2003-2019 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -33,9 +33,9 @@ use GroupDocs\Parser\Model\ContainerItemInfo;
 use GroupDocs\Parser\Model\Requests;
 use GroupDocs\Parser\Model\InfoOptions;
 
-require_once "BaseApiTest.php";
+require_once "BaseApiTestCase.php";
 
-class ParserInfoApiTest extends BaseApiTest
+class ParserInfoApiTest extends BaseApiTestCase
 {
     public function testGetInfo_Txt()
     {
@@ -69,7 +69,7 @@ class ParserInfoApiTest extends BaseApiTest
     public function testGetInfo_FileNotFoundResult()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Can't find file located at 'folder/file-not-exist.pdf'.");
+        $this->expectExceptionMessage("Can't find file located at 'folder/file-not-exist.pdf'.");
 
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new InfoOptions();
@@ -82,7 +82,7 @@ class ParserInfoApiTest extends BaseApiTest
     public function testGetInfo_IncorrectPassword()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
+        $this->expectExceptionMessage("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";

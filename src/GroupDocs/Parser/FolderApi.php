@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="FolderApi.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -127,14 +127,12 @@ class FolderApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
                 if(property_exists($error, 'message')) {
                     $errorCode = $e->getCode();
                     $errorMessage = $error != null && $error->message != null
                         ? $error->message
                         : $e->getMessage();
-
+                    
                     throw new ApiException($errorMessage, $errorCode);
                 }
                 else {                    
@@ -142,11 +140,9 @@ class FolderApi
                     $errorMessage = $error != null && $error->error->message != null
                         ? $error->error->message
                         : $e->getMessage();
-   
+                    
                     throw new ApiException($errorMessage, $errorCode);
-                } 
-                
-                throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -401,14 +397,12 @@ class FolderApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
                 if(property_exists($error, 'message')) {
                     $errorCode = $e->getCode();
                     $errorMessage = $error != null && $error->message != null
                         ? $error->message
                         : $e->getMessage();
-
+                    
                     throw new ApiException($errorMessage, $errorCode);
                 }
                 else {                    
@@ -416,11 +410,9 @@ class FolderApi
                     $errorMessage = $error != null && $error->error->message != null
                         ? $error->error->message
                         : $e->getMessage();
-   
+                    
                     throw new ApiException($errorMessage, $errorCode);
-                } 
-                
-                throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -651,14 +643,12 @@ class FolderApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
                 if(property_exists($error, 'message')) {
                     $errorCode = $e->getCode();
                     $errorMessage = $error != null && $error->message != null
                         ? $error->message
                         : $e->getMessage();
-
+                    
                     throw new ApiException($errorMessage, $errorCode);
                 }
                 else {                    
@@ -666,11 +656,9 @@ class FolderApi
                     $errorMessage = $error != null && $error->error->message != null
                         ? $error->error->message
                         : $e->getMessage();
-   
+                    
                     throw new ApiException($errorMessage, $errorCode);
-                } 
-                
-                throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -912,14 +900,12 @@ class FolderApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
                 if(property_exists($error, 'message')) {
                     $errorCode = $e->getCode();
                     $errorMessage = $error != null && $error->message != null
                         ? $error->message
                         : $e->getMessage();
-
+                    
                     throw new ApiException($errorMessage, $errorCode);
                 }
                 else {                    
@@ -927,11 +913,9 @@ class FolderApi
                     $errorMessage = $error != null && $error->error->message != null
                         ? $error->error->message
                         : $e->getMessage();
-   
+                    
                     throw new ApiException($errorMessage, $errorCode);
-                } 
-                
-                throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -1202,14 +1186,12 @@ class FolderApi
                 $responseBody = $e->getResponse()->getBody();
                 $content = $responseBody->getContents();
                 $error = json_decode($content);
-
-                $errorCode = $e->getCode();
                 if(property_exists($error, 'message')) {
                     $errorCode = $e->getCode();
                     $errorMessage = $error != null && $error->message != null
                         ? $error->message
                         : $e->getMessage();
-
+                    
                     throw new ApiException($errorMessage, $errorCode);
                 }
                 else {                    
@@ -1217,11 +1199,9 @@ class FolderApi
                     $errorMessage = $error != null && $error->error->message != null
                         ? $error->error->message
                         : $e->getMessage();
-   
+                    
                     throw new ApiException($errorMessage, $errorCode);
-                } 
-                
-                throw new ApiException($errorMessage, $errorCode);
+                }
             }
 
             $statusCode = $response->getStatusCode();
@@ -1520,30 +1500,15 @@ class FolderApi
             
                 $this->accessToken = $result["access_token"];                
             } catch (RequestException $e) {
-                if ($e->hasResponse()) {
-                    $responseBody = $e->getResponse()->getBody();
-                    $content = $responseBody->getContents();
-                    $error = json_decode($content);
-                    if (is_object($error)) {
-                        if ($error->error != null) {
-                            if (is_object($error->error)) {
-                                $errorMessage = $error->error->message != null ? $error->error->message : $e->getMessage();
-                            } else if (is_string($error->error)) {
-                                $errorMessage = $error->error;
-                            } else {
-                                $errorMessage = $e->getMessage();
-                            }
-                        }
-                    } else if (is_string($error)) {
-                        $errorMessage = $error;
-                    } else {
-                        $errorMessage = $e->getMessage();
-                    }
-                } else {
-                    $errorMessage = $e->getMessage();
-                }
+                $responseBody = $e->getResponse()->getBody();
+                $content = $responseBody->getContents();
+                $error = json_decode($content);
 
                 $errorCode = $e->getCode();
+                $errorMessage = $error->error != null 
+                    ? $error->error
+                    : $e->getMessage();
+                    
                 throw new ApiException($errorMessage, $errorCode);
             }
         }
@@ -1553,7 +1518,7 @@ class FolderApi
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="copyFolderRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1623,7 +1588,7 @@ class copyFolderRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="createFolderRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1679,7 +1644,7 @@ class createFolderRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="deleteFolderRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1742,7 +1707,7 @@ class deleteFolderRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="getFilesListRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1798,7 +1763,7 @@ class getFilesListRequest
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="moveFolderRequest.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -2,7 +2,7 @@
 /*
  * --------------------------------------------------------------------------------------------------------------------
  * <copyright company="Aspose Pty Ltd" file="BarcodesResult.php">
- *   Copyright (c) 2003-2023 Aspose Pty Ltd
+ *   Copyright (c) Aspose Pty Ltd
  * </copyright>
  * <summary>
  *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -34,7 +34,6 @@ use \GroupDocs\Parser\ObjectSerializer;
 /*
  * BarcodesResult
  *
- * @description Barcodes result.
  */
 class BarcodesResult implements ArrayAccess
 {

@@ -2,7 +2,7 @@
 /*
 * --------------------------------------------------------------------------------------------------------------------
 * <copyright company="Aspose" file="BaseApiTest.php">
-*   Copyright (c) 2003-2019 Aspose Pty Ltd
+*   Copyright (c) Aspose Pty Ltd
 * </copyright>
 * <summary>
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -36,7 +36,7 @@ use GroupDocs\Parser\StorageApi;
 use GroupDocs\Parser\FileApi;
 use GroupDocs\Parser\FolderApi;
 
-class BaseApiTest extends \PHPUnit\Framework\TestCase
+class BaseApiTestCase extends \PHPUnit\Framework\TestCase
 {
     protected static $parserConfig;
 
