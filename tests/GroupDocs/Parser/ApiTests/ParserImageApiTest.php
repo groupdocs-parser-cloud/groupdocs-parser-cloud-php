@@ -106,7 +106,7 @@ class ParserImageApiTest extends BaseApiTestCase
     public function testGetImage_Pdf_Container_FromPages_Error()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessage("The specified file 'containers\archive\docx.zip' has type which is not currently supported.");
+        $this->expectExceptionMessage("The specified file 'containers/archive/docx.zip' has type which is not currently supported.");
 
         $testFile = Internal\TestFiles::getFileZip();
         $options = new ImagesOptions();
@@ -134,7 +134,7 @@ class ParserImageApiTest extends BaseApiTestCase
     public function testGetImage_IncorrectPassword()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessage("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
+        $this->expectExceptionMessage("Password provided for file 'words/docx/password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";

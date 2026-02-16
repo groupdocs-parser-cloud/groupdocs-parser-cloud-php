@@ -37,7 +37,7 @@ use GuzzleHttp\RequestOptions;
 use GroupDocs\Parser\Model\Requests;
 
 /*
- * GroupDocs.Parser for Cloud API Reference
+ * GroupDocs.Parser Cloud API Reference
  */
 class TemplateApi
 {

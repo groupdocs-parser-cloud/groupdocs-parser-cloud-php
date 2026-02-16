@@ -82,7 +82,7 @@ class ParserInfoApiTest extends BaseApiTestCase
     public function testGetInfo_IncorrectPassword()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessage("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
+        $this->expectExceptionMessage("Password provided for file 'words/docx/password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";

@@ -70,7 +70,7 @@ class ParserContainerApiTest extends BaseApiTestCase
     public function test_get_container_item_info_unsupported_file()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessage("The specified file 'video\avi\sample.avi' has type which is not currently supported.");
+        $this->expectExceptionMessage("The specified file 'video/avi/sample.avi' has type which is not currently supported.");
 
         $testFile = Internal\TestFiles::getFileVideo();
         $options = new ContainerOptions();

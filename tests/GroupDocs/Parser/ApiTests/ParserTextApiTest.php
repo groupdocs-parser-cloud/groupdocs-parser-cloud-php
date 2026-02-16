@@ -92,7 +92,7 @@ class ParserTextApiTest extends BaseApiTestCase
     public function testExtractText_FileNotFoundResult()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("/Can't find file located at 'folder\/file-not-exist.pdf'./");
+        $this->expectExceptionMessage("Can't find file located at 'folder/file-not-exist.pdf'.");
         
         $testFile = Internal\TestFiles::getFileNotExist();
         $options = new TextOptions();
@@ -105,7 +105,7 @@ class ParserTextApiTest extends BaseApiTestCase
     public function testExtractText_IncorrectPassword()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessageMatches("/Password provided for file 'words\\\\docx\\\\password-protected.docx' is incorrect./");
+        $this->expectExceptionMessage("Password provided for file 'words/docx/password-protected.docx' is incorrect.");
         
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";

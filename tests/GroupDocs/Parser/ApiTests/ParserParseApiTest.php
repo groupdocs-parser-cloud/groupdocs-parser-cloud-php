@@ -62,7 +62,7 @@ class ParserParseApiTest extends BaseApiTestCase
     public function testParseDocument_IncorrectPassword()
     {
         $this->expectException(\GroupDocs\Parser\ApiException::class);
-        $this->expectExceptionMessage("Password provided for file 'words\docx\password-protected.docx' is incorrect.");
+        $this->expectExceptionMessage("Password provided for file 'words/docx/password-protected.docx' is incorrect.");
 
         $testFile = Internal\TestFiles::getFilePasswordProtected();
         $testFile->password = "123";
@@ -87,17 +87,6 @@ class ParserParseApiTest extends BaseApiTestCase
 
         $this->assertNotNull($response);
         $this->assertEquals(1, $response->getCount());
-
-        // $fieldNames = array(
-        //     "FIELD1", "RELATEDFIELD2", "REGEX", "TABLECELLS"
-        // );
-        // foreach ($response->getFieldsData() as $key => $value) {
-        //     $this->assertTrue(in_array($value->getName(), $fieldNames));
-        //     if ($value->getName() == "TABLECELLS") {
-        //         $this->assertEquals(4, $value->getPageArea()->getPageTableArea()->getColumnCount());
-        //         $this->assertEquals(3, $value->getPageArea()->getPageTableArea()->getRowCount());
-        //     }
-        // };
     }
 
     public function testParseDocument_NotSupportedFile()
@@ -113,6 +102,24 @@ class ParserParseApiTest extends BaseApiTestCase
         $request = new Requests\parseRequest($options);
 
         $response = self::$parseApi->parse($request);
+    }
+
+    public function testAIParse()
+    {
+        $testFile = Internal\TestFiles::getFileInvoice();
+        $options = new \GroupDocs\Parser\Model\AIParseOptions();
+        $options->setFileInfo($testFile->ToFileInfo());
+        $options->setTemplate([
+            "InvoiceNum" => "",
+            "Date" => "",
+            "Email" => ""
+        ]);
+        $request = new \GroupDocs\Parser\Model\Requests\AIParseRequest($options);
+        $result = self::$parseApi->aiParse($request);
+
+        $this->assertNotNull($result);
+        $invoiceNum = isset($result["InvoiceNum"]) ? $result["InvoiceNum"] : null;
+        $this->assertNotNull($invoiceNum);
     }
 
     public function getTemplate()
